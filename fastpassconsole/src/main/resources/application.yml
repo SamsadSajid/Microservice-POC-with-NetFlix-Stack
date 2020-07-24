@@ -5,3 +5,15 @@ eureka:
   client:
     register-with-eureka: true
     fetch-registry: true
+
+  instance:
+    instance-id: ${spring.application.name}:${random.int}
+
+ribbon:
+  eureka:
+    enabled: true
+
+# It can also be done by the following rather than specifying a config class in the @RibbonClient()
+#fastpass-service:
+#  ribbon:
+#    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.WeightedResponseTimeRule
